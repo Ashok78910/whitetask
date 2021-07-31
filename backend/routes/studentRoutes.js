@@ -8,8 +8,7 @@ const {
   getStudents,
   deleteStudent,
 } = require('../controller/studentController')
-const protect = require('../middleware/authmiddleware')
-
+const protect = require('../middleware/authMiddleware')
 
 router.route('/').post(registerStudent).get(protect, getStudents)
 router.post('/login', authStudent)

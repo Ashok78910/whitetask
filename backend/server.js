@@ -11,7 +11,8 @@ const subjectRoutes = require('./routes/subjectRoutes')
 const marksRoutes = require('./routes/marksRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
 
-dotenv.config()
+dotenv.config({ path: path.resolve(__dirname, './.env') })
+
 connectDB()
 
 const app = express()
@@ -31,6 +32,6 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, console.log(`Server runnig on port ${PORT}`))
